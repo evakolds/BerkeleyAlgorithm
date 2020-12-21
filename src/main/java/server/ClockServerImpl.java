@@ -10,7 +10,6 @@ import common.AppConstants;
 public class ClockServerImpl extends UnicastRemoteObject implements ClockServer {
 
 	private static final long serialVersionUID = -6810169856453308607L;
-
 	private LocalTime time;
 
 	public ClockServerImpl(LocalTime time) throws RemoteException {
@@ -23,8 +22,8 @@ public class ClockServerImpl extends UnicastRemoteObject implements ClockServer 
 	}
 
 	@Override
-	public void adjustTime(LocalTime timeClient, long diffNanos) {
-		long timeLocalNanos = timeClient.toNanoOfDay();
+	public void adjustTime(LocalTime localTime, long diffNanos) {
+		long timeLocalNanos = localTime.toNanoOfDay();
 		long thisNanos = this.getTime().toNanoOfDay();
 		long newNanos = thisNanos - timeLocalNanos;
 		newNanos = newNanos * -1 + diffNanos + thisNanos;

@@ -9,5 +9,5 @@ public interface ClockServer extends Remote {
 
 	LocalTime getTime() throws RemoteException;
 
-	void adjustTime(LocalTime timeClient, long nanos) throws RemoteException;
+	void adjustTime(LocalTime localTime, long nanos) throws RemoteException;
 }
